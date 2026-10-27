@@ -1,24 +1,24 @@
 schema: 1
 workspace: ERP AI
-owner: arlo-hello
+owner: gary
 docs:
-  repository: https://github.com/arlo-hello/erp-ai-docs.git
-  local_path: .
+  repository: git@github.com:fstln-dev/erp-ai-docs.git
+  local_path: ../erp-ai-docs
   default_branch: main
   template_branch: template
-  current_version: null
-  version_branch: null
+  current_version: v0.28.4
+  version_branch: docs/v0.28.4
 orchestration:
-  agent_prompt: agents/ERP-PM.md
-  skill_registry: .agents/SKILL_REGISTRY.md
+  repository: git@github.com:fstln-dev/erp-ai-coding.git
+  local_path: ..
 backend:
-  repository: null
-  local_path: null
-  version_branch: null
+  repository: git@github.com:fstln-dev/erp-service-php.git
+  local_path: ../erp-service-php
+  version_branch: feat/v0.28.4
 frontend:
-  repository: null
-  local_path: null
-  version_branch: null
+  repository: git@github.com:fstln-dev/dtcplus-web-ts.git
+  local_path: ../dtcplus-web-ts
+  version_branch: feat/v0.28.4
 handoff:
   required_fields:
     - docs_repo
@@ -31,5 +31,4 @@ handoff:
     - uncommitted changes
   reference_fields:
     docs_head_commit: 任务分支 head commit；只代表草稿或待审版本
-    docs_commit: 人工合并进版本分支后的开发输入
-
+    docs_commit: 人工合并进版本分支后的 development input
