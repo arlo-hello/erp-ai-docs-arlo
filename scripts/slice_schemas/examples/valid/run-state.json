@@ -1,0 +1,32 @@
+{
+  "slice_id": "SL-ORD-001",
+  "run_id": "SL-ORD-001-MIG-001",
+  "entry_mode": "LEGACY_MIGRATION",
+  "slice_kind": "WRITE",
+  "data_delivery_mode": "SNAPSHOT_CDC",
+  "active_definition_revision": 1,
+  "active_definition_ref": "specs/slices/SL-ORD-001/runs/SL-ORD-001-MIG-001/definitions/0001/run-definition.yaml",
+  "lifecycle_state": "DISCOVERED",
+  "current_stage": "discovery",
+  "gates": {"G-SCOPE": "PENDING"},
+  "optional_state_decisions": {"ASSISTED": {"decision": "PENDING"}},
+  "candidate_write_authority": {
+    "mode": "SINGLE",
+    "owner_bindings": {"SOURCE": "LEGACY", "TARGET": "RUN:SL-ORD-001-MIG-001"},
+    "default_owner": "SOURCE",
+    "partition_key": null,
+    "overrides": []
+  },
+  "candidate_read_route": null,
+  "state_event_refs": [],
+  "last_transition": {
+    "from": "NOT_EXISTS",
+    "to": "DISCOVERED",
+    "gate": "START",
+    "actor": "slice-owner",
+    "reason": "初始化",
+    "evidence_refs": [],
+    "at": "2026-08-05T00:00:00+08:00"
+  },
+  "updated_at": "2026-08-05T00:00:00+08:00"
+}

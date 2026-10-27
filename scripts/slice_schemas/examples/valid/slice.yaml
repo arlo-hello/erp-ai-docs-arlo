@@ -1,0 +1,10 @@
+slice_id: SL-ORD-001
+name: 创建可履约的B2B订单
+slice_kind: WRITE
+value_stream: order-to-fulfillment
+capability: b2b-order
+slice_family: SF-ORD-INTAKE
+primary_actor: sales
+business_owner: sales-operations
+domain_owner: ORDER
+created_at: 2026-08-05T00:00:00+08:00

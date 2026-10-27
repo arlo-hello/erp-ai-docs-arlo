@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Collaboration Event Schema",
+  "type": "object",
+  "required": [
+    "event_id",
+    "event_type",
+    "task_id",
+    "task_local_id",
+    "run_id",
+    "expected_task_revision",
+    "expected_state_revision",
+    "from_state",
+    "to_state",
+    "actor",
+    "payload",
+    "occurred_at",
+    "evidence_refs"
+  ],
+  "properties": {
+    "event_id": {"type": "string", "pattern": "^[0-9a-f-]{36}$"},
+    "event_type": {
+      "enum": [
+        "TASK_READY",
+        "TASK_ASSIGNED",
+        "TASK_STARTED",
+        "TASK_BLOCKED",
+        "TASK_UNBLOCKED",
+        "TASK_CONTRACT_CHANGE_REQUESTED",
+        "TASK_REVIEW_REQUESTED",
+        "TASK_CHANGES_REQUESTED",
+        "TASK_ACCEPTED",
+        "TASK_HANDOFF_REQUESTED",
+        "TASK_STALE",
+        "TASK_REVISED",
+        "TASK_CANCELLED",
+        "SLICE_STATE_CHANGED"
+      ]
+    },
+    "task_id": {"type": "string"},
+    "task_local_id": {"type": "string"},
+    "run_id": {"type": "string"},
+    "expected_task_revision": {"type": "integer", "minimum": 1},
+    "expected_state_revision": {"type": "integer", "minimum": 1},
+    "from_state": {"type": "string"},
+    "to_state": {"type": "string"},
+    "actor": {"type": "string"},
+    "payload": {"type": "object"},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}}
+  }
+}

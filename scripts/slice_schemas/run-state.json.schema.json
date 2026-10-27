@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Run State Schema",
+  "type": "object",
+  "required": [
+    "slice_id",
+    "run_id",
+    "entry_mode",
+    "slice_kind",
+    "data_delivery_mode",
+    "active_definition_revision",
+    "active_definition_ref",
+    "lifecycle_state",
+    "current_stage",
+    "gates",
+    "optional_state_decisions",
+    "state_event_refs",
+    "last_transition",
+    "updated_at"
+  ],
+  "properties": {
+    "slice_id": {"type": "string", "pattern": "^(ERP-SLICE-[A-Z][A-Z0-9]{1,7}-[0-9]{3,4}|SL-[A-Z0-9]+(-[A-Z0-9]+)*)$"},
+    "run_id": {"type": "string"},
+    "entry_mode": {"enum": ["NEW_CAPABILITY", "LEGACY_MIGRATION", "EXISTING_SLICE_CHANGE"]},
+    "slice_kind": {"enum": ["WRITE", "READ_ONLY"]},
+    "data_delivery_mode": {"enum": ["DIRECT_QUERY", "SNAPSHOT_CDC", "TARGET_NATIVE"]},
+    "active_definition_revision": {"type": "integer", "minimum": 1},
+    "active_definition_ref": {"type": "string"},
+    "lifecycle_state": {
+      "enum": ["DISCOVERED", "DEFINED", "READY", "BUILDING", "VERIFIED", "SHADOW", "ASSISTED", "PRIMARY", "LEGACY_RETIRED"]
+    },
+    "current_stage": {
+      "enum": ["discovery", "product", "contract", "build", "verify", "deploy", "rollout", "retire"]
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": ["PENDING", "RUNNING", "PASSED", "FAILED", "SKIPPED", "NOT_APPLICABLE"]
+      }
+    },
+    "optional_state_decisions": {"type": "object"},
+    "candidate_write_authority": {"type": ["object", "null"]},
+    "candidate_read_route": {"type": ["object", "null"]},
+    "state_event_refs": {"type": "array", "items": {"type": "string"}},
+    "last_transition": {
+      "type": "object",
+      "required": ["from", "to", "gate", "actor", "reason", "evidence_refs", "at"],
+      "properties": {
+        "from": {"type": "string"},
+        "to": {"type": "string"},
+        "gate": {"type": "string"},
+        "actor": {"type": "string"},
+        "reason": {"type": "string"},
+        "evidence_refs": {"type": "array", "items": {"type": "string"}},
+        "at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "updated_at": {"type": "string", "format": "date-time"}
+  }
+}

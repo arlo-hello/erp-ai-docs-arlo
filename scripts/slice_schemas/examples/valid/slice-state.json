@@ -1,0 +1,18 @@
+{
+  "slice_id": "SL-ORD-001",
+  "deployed": {
+    "run_id": "SL-ORD-001-MIG-000",
+    "lifecycle_state": "LEGACY_RETIRED",
+    "spec_version": "1.0",
+    "contract_version": "1.0",
+    "write_authority": {"mode": "SINGLE", "default_owner": "LEGACY"},
+    "read_route": {"mode": "SINGLE", "default_target": "LEGACY_QUERY"},
+    "write_revision": 1,
+    "read_revision": 1
+  },
+  "active_runs": [
+    {"run_id": "SL-ORD-001-MIG-001", "state_ref": "runs/SL-ORD-001-MIG-001/run-state.json"}
+  ],
+  "state_revision": 1,
+  "updated_at": "2026-08-05T00:00:00+08:00"
+}

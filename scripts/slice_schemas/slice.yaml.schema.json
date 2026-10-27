@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Slice YAML Schema",
+  "type": "object",
+  "definitions": {
+    "code_target": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": {"type": "string", "description": "Relative path from repo root"},
+        "layers": {"type": "array", "items": {"type": "string"}},
+        "notes": {"type": "string"}
+      }
+    }
+  },
+  "required": [
+    "slice_id",
+    "name",
+    "slice_kind",
+    "value_stream",
+    "capability",
+    "primary_actor",
+    "business_owner",
+    "domain_owner",
+    "created_at"
+  ],
+  "properties": {
+    "slice_id": {"type": "string", "pattern": "^(ERP-SLICE-[A-Z][A-Z0-9]{1,7}-[0-9]{3,4}|SL-[A-Z0-9]+(-[A-Z0-9]+)*)$"},
+    "name": {"type": "string", "minLength": 1},
+    "slice_kind": {"enum": ["WRITE", "READ_ONLY"]},
+    "value_stream": {"type": "string"},
+    "capability": {"type": "string"},
+    "slice_family": {"type": "string"},
+    "primary_actor": {"type": "string"},
+    "business_owner": {"type": "string"},
+    "domain_owner": {"type": "string"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "code_targets": {
+      "type": "object",
+      "description": "Coding targets in existing project (DEC-20260806-001)",
+      "properties": {
+        "backend": {"$ref": "#/definitions/code_target"},
+        "frontend": {"$ref": "#/definitions/code_target"}
+      }
+    },
+    "tech_plan_path": {
+      "type": "string",
+      "description": "Path to slice tech plan: docs/tech/{slice-id}/"
+    },
+    "depends_on": {
+      "type": "array",
+      "description": "Slice dependencies for cross-domain integration (C9)",
+      "items": {
+        "type": "object",
+        "required": ["slice_id"],
+        "properties": {
+          "slice_id": {"type": "string"},
+          "reason": {"type": "string"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Slice State Schema",
+  "type": "object",
+  "required": ["slice_id", "deployed", "active_runs", "state_revision", "updated_at"],
+  "properties": {
+    "slice_id": {"type": "string", "pattern": "^(ERP-SLICE-[A-Z][A-Z0-9]{1,7}-[0-9]{3,4}|SL-[A-Z0-9]+(-[A-Z0-9]+)*)$"},
+    "deployed": {
+      "type": "object",
+      "required": [
+        "run_id",
+        "lifecycle_state",
+        "spec_version",
+        "contract_version",
+        "write_authority",
+        "read_route",
+        "write_revision",
+        "read_revision"
+      ],
+      "properties": {
+        "run_id": {"type": "string"},
+        "lifecycle_state": {
+          "enum": ["DISCOVERED", "DEFINED", "READY", "BUILDING", "VERIFIED", "SHADOW", "ASSISTED", "PRIMARY", "LEGACY_RETIRED"]
+        },
+        "spec_version": {"type": "string"},
+        "contract_version": {"type": "string"},
+        "write_authority": {
+          "type": "object",
+          "required": ["mode", "default_owner"],
+          "properties": {
+            "mode": {"enum": ["NONE", "SINGLE", "PARTITIONED"]},
+            "default_owner": {"type": ["string", "null"]}
+          }
+        },
+        "read_route": {
+          "type": "object",
+          "required": ["mode", "default_target"],
+          "properties": {
+            "mode": {"enum": ["SINGLE", "PARTITIONED"]},
+            "default_target": {"type": "string"}
+          }
+        },
+        "write_revision": {"type": "integer", "minimum": 0},
+        "read_revision": {"type": "integer", "minimum": 0}
+      }
+    },
+    "active_runs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["run_id", "state_ref"],
+        "properties": {
+          "run_id": {"type": "string"},
+          "state_ref": {"type": "string"}
+        }
+      }
+    },
+    "state_revision": {"type": "integer", "minimum": 1},
+    "updated_at": {"type": "string", "format": "date-time"}
+  }
+}

@@ -1,0 +1,35 @@
+schema: 1
+workspace: ERP AI
+owner: arlo-hello
+docs:
+  repository: https://github.com/arlo-hello/erp-ai-docs.git
+  local_path: .
+  default_branch: main
+  template_branch: template
+  current_version: null
+  version_branch: null
+orchestration:
+  agent_prompt: agents/ERP-PM.md
+  skill_registry: .agents/SKILL_REGISTRY.md
+backend:
+  repository: null
+  local_path: null
+  version_branch: null
+frontend:
+  repository: null
+  local_path: null
+  version_branch: null
+handoff:
+  required_fields:
+    - docs_repo
+    - docs_branch
+    - docs_commit
+    - docs_paths
+  unstable_refs:
+    - current workspace
+    - latest files
+    - uncommitted changes
+  reference_fields:
+    docs_head_commit: 任务分支 head commit；只代表草稿或待审版本
+    docs_commit: 人工合并进版本分支后的开发输入
+

@@ -1,0 +1,27 @@
+{
+  "skill_name": "solution-consistency-checker",
+  "notes": "MCP 未在当前会话加载;with-skill 子代理走 SKILL.md 的 CLI 兜底(codebase-memory-mcp cli <tool>)。baseline 无 skill,用 grep/read。代码图谱已索引 erp-service-php / dtcplus-web-ts。",
+  "evals": [
+    {
+      "id": 0,
+      "name": "procurement-new-format-backend",
+      "prompt": "帮我核对一下 procurement-to-warehouse(采购到入库)这个模块的产品方案和后端代码是否一致。产品方案在 docs/product/procurement-to-warehouse/,后端代码用 codebase-memory-mcp 图谱(已索引,项目名 Users-apple-ERPAI-erp-service-php)。输出差异报告。",
+      "expected_output": "一份《产品方案一致性报告》,五维差异表(功能点/链路/事件/字段/影响范围),每个差异带代码文件:行号+方案来源,分级 🔴🟠🟡🟢,末尾自检报告。一致项不展开。",
+      "files": []
+    },
+    {
+      "id": 1,
+      "name": "purchase-order-old-format",
+      "prompt": "purchase-order 这个模块的产品方案是旧格式命名的(01-product-design.md 那套),帮我核对下它跟现有代码对不对得上,重点看字段和功能点。",
+      "expected_output": "能识别旧格式命名并映射到对应文件;报告注明'旧格式';字段差异表逐字段列出,带 Model 来源。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "entity-field-drift",
+      "prompt": "主体管理(entity)的方案落地了吗?用图谱跟代码核对一下,看看方案里的字段有没有在代码里漏实现,或者代码里有方案没写的字段。",
+      "expected_output": "聚焦字段维度的一致性报告;调用 search_graph 定位 Model + get_code_snippet 读字段;区分'方案有代码无'与'代码有方案无';差异可追溯。",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "codebase-memory-mcp": {
+      "command": "<CODEBASE_MEMORY_MCP_EXECUTABLE>",
+      "args": [],
+      "env": {
+        "CBM_ALLOWED_ROOT": "<LOCAL_WORKSPACE_ROOT>",
+        "CBM_LOG_LEVEL": "info"
+      }
+    }
+  }
+}
+

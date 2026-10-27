@@ -1,0 +1,20 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+dist/
+build/
+*.tmp
+*.log
+*.diff
+*.patch
+
+# Local-only runtime configuration and generated skill workspace
+.mcp.json
+.env
+.env.*
+!.env.example
+.local/
+work/
+
+

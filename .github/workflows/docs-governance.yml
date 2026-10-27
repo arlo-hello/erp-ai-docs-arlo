@@ -1,0 +1,49 @@
+name: Docs Governance
+
+on:
+  push:
+    branches:
+      - main
+      - template
+      - "docs/**"
+  pull_request:
+
+jobs:
+  governance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install validator dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check repository governance
+        run: python3 scripts/check_governance.py
+
+      - name: Check automation scripts
+        run: python3 -m py_compile scripts/*.py
+
+      - name: Check PM skill baseline
+        run: python3 scripts/check_skills.py
+
+      - name: Check Multica title pattern
+        if: github.ref_name != 'template'
+        run: |
+          python3 scripts/multica_title_check.py \
+            --title "[v0.1.0][DEV][ERP-SLICE-ORD-001] 示例业务结果"
+
+      - name: Check slice registry
+        if: github.ref_name != 'template' && hashFiles('docs/versions/current.txt') != ''
+        run: |
+          version="$(tr -d '\n' < docs/versions/current.txt)"
+          python3 scripts/registry_check.py "specs/${version}/slice-registry.yaml"
+
+      - name: Check slice contracts
+        if: github.ref_name != 'template' && hashFiles('docs/versions/current.txt') != ''
+        run: |
+          version="$(tr -d '\n' < docs/versions/current.txt)"
+          python3 scripts/contract_check.py "specs/${version}/slices"

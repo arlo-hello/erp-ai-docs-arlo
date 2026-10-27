@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Run YAML Schema",
+  "type": "object",
+  "required": [
+    "run_id",
+    "slice_id",
+    "entry_mode",
+    "slice_kind",
+    "created_at",
+    "definition_policy",
+    "initial_definition_revision",
+    "initial_definition_ref"
+  ],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "slice_id": {"type": "string", "pattern": "^(ERP-SLICE-[A-Z][A-Z0-9]{1,7}-[0-9]{3,4}|SL-[A-Z0-9]+(-[A-Z0-9]+)*)$"},
+    "entry_mode": {"enum": ["NEW_CAPABILITY", "LEGACY_MIGRATION", "EXISTING_SLICE_CHANGE"]},
+    "slice_kind": {"enum": ["WRITE", "READ_ONLY"]},
+    "created_at": {"type": "string", "format": "date-time"},
+    "definition_policy": {"const": "APPEND_ONLY"},
+    "initial_definition_revision": {"type": "integer", "minimum": 1},
+    "initial_definition_ref": {"type": "string"}
+  }
+}

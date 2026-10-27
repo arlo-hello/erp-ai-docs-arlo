@@ -1,0 +1,24 @@
+{
+  "slice_id": "SL-ORD-001",
+  "run_id": "SL-ORD-001-MIG-001",
+  "entry_mode": "LEGACY_MIGRATION",
+  "slice_kind": "WRITE",
+  "data_delivery_mode": "SNAPSHOT_CDC",
+  "active_definition_revision": 1,
+  "active_definition_ref": "definitions/0001/run-definition.yaml",
+  "lifecycle_state": "NOT_A_STATE",
+  "current_stage": "discovery",
+  "gates": {"G-SCOPE": "PASSED"},
+  "optional_state_decisions": {},
+  "state_event_refs": [],
+  "last_transition": {
+    "from": "DISCOVERED",
+    "to": "DEFINED",
+    "gate": "G-SCOPE",
+    "actor": "slice-owner",
+    "reason": "scope approved",
+    "evidence_refs": [],
+    "at": "2026-08-05T00:00:00+08:00"
+  },
+  "updated_at": "2026-08-05T00:00:00+08:00"
+}
