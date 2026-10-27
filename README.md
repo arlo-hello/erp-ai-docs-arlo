@@ -53,7 +53,7 @@ docs/v0.28.4_0111
 产品 agent 完成方案后，必须提供稳定引用：
 
 ```yaml
-docs_repo: arlo-hello/erp-ai-docs
+docs_repo: arlo-hello/erp-ai-docs-arlo
 docs_branch: docs/v0.28.4_0111
 docs_commit: <40-bit commit SHA>
 docs_paths:
@@ -101,7 +101,7 @@ python3 scripts/pm_autosave.py \
 ```bash
 python3 scripts/sync_merged_docs.py \
   --issue ERP-111 \
-  --pr https://github.com/arlo-hello/erp-ai-docs/pull/1
+  --pr https://github.com/arlo-hello/erp-ai-docs-arlo/pull/1
 ```
 
 开发放行前：

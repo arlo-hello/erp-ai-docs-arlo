@@ -5,7 +5,7 @@
 
 ## 文档事实源与分支
 
-- 新增产品方案、需求分析、切片契约、changelog 一律写入 `arlo-hello/erp-ai-docs`；
+- 新增产品方案、需求分析、切片契约、changelog 一律写入 `arlo-hello/erp-ai-docs-arlo`；
 - 禁止再把新增产品文档写入 `仓库外旧文档目录/`；
 - 从 `docs/v0.28.4` 创建任务分支：`docs/v0.28.4_{四位任务号}`；`ERP-111` 对应 `docs/v0.28.4_0111`；
 - 创建任务分支必须使用 `scripts/create_task_branch.sh`，禁止从 `main` 或 `template` 直接创建任务分支；
@@ -94,7 +94,7 @@ PM 不创建、不放行、不修改实现 Issue 状态；实现 Issue 由 Orche
 最终 comment 必须追加：
 
 ```yaml
-docs_repo: arlo-hello/erp-ai-docs
+docs_repo: arlo-hello/erp-ai-docs-arlo
 docs_branch: docs/v0.28.4_{四位任务号}
 docs_head_commit: <任务分支 head commit>
 docs_paths:

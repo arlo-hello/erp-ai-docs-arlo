@@ -12,7 +12,7 @@
 ## 稳定引用
 
 ```yaml
-docs_repo: arlo-hello/erp-ai-docs
+docs_repo: arlo-hello/erp-ai-docs-arlo
 docs_branch: docs/v0.28.4_{四位任务号}
 docs_head_commit: <任务分支 head commit；草稿或待审>
 docs_commit: <人工合并进版本分支后的 commit；开发输入>

@@ -1,13 +1,13 @@
 schema: 1
-workspace: ERP AI
-owner: gary
+workspace: fastlane
+owner: arlo-hello
 docs:
-  repository: git@github.com:fstln-dev/erp-ai-docs.git
-  local_path: ../erp-ai-docs
+  repository: git@github.com:arlo-hello/erp-ai-docs-arlo.git
+  local_path: ../erp-ai-docs-arlo
   default_branch: main
   template_branch: template
-  current_version: v0.28.4
-  version_branch: docs/v0.28.4
+  current_version: main
+  version_branch: main
 orchestration:
   repository: git@github.com:fstln-dev/erp-ai-coding.git
   local_path: ..
