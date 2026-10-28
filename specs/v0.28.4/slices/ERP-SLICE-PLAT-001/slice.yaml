@@ -2,6 +2,7 @@ slice_id: ERP-SLICE-PLAT-001
 title: 商业实体主数据闭环可安全维护
 domain: PLAT
 status: DEFINED
+definition_revision: 1
 slice_type: implementation
 business_outcome: 有权限用户可完整维护商业实体，停用实体不进入新业务，历史数据不受主数据修改影响，有引用实体不可删除。
 blocked_by: []
