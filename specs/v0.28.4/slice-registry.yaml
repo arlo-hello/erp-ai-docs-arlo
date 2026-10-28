@@ -1,0 +1,25 @@
+version: v0.28.4
+id_pattern: ^ERP-SLICE-(PRODUCT|ORD|B2C|IMS|ASS|FIN|PUR|PLAT)-[0-9]{3,4}$
+domains:
+  - PRODUCT
+  - ORD
+  - B2C
+  - IMS
+  - ASS
+  - FIN
+  - PUR
+  - PLAT
+slices:
+  - slice_id: ERP-SLICE-PLAT-001
+    title: 商业实体主数据闭环可安全维护
+    domain: PLAT
+    status: DEFINED
+    slice_kind: WRITE
+    blocked_by: []
+    contract: specs/v0.28.4/slices/ERP-SLICE-PLAT-001/contract.md
+summary:
+  total_slices: 1
+  write: 1
+  read_only: 0
+  defined: 1
+  candidate: 0
