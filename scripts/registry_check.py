@@ -67,7 +67,7 @@ def check_registry(path):
 
 
 def main(argv):
-    path = argv[0] if argv else "specs/slice-registry.yaml"
+    path = Path(argv[0] if argv else "specs/slice-registry.yaml")
     issues, counts = check_registry(path)
     if issues:
         print("注册表校验失败：")
