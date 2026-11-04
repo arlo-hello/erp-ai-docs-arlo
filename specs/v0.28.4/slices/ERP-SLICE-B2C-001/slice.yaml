@@ -1,0 +1,16 @@
+slice_id: ERP-SLICE-B2C-001
+title: 运营可跨订单组合发货并按原订单回传履约
+domain: B2C
+status: DEFINED
+definition_revision: 1
+slice_type: implementation
+business_outcome: 运营可手工组合多张符合条件的待履约单，仓库可分包出库，ERP按原Shopify订单商品行独立回传且失败可恢复。
+blocked_by: []
+code_targets:
+  backend: erp-service-php
+  frontend: dtcplus-web-ts
+docs:
+  - docs/v0.28.4/tasks/0182/requirement-analysis.md
+  - docs/v0.28.4/tasks/0182/product-plan.md
+contract: specs/v0.28.4/slices/ERP-SLICE-B2C-001/contract.md
+
