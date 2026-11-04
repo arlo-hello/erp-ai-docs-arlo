@@ -1,0 +1,15 @@
+slice_id: ERP-SLICE-ORD-001
+title: 履约申报规则可按渠道精细控制金额
+domain: ORD
+status: DEFINED
+definition_revision: 1
+slice_type: implementation
+business_outcome: 用户可按仓库、国家和物流渠道配置申报规则，并以一位小数比例或固定总额生成守恒且可冻结的履约申报快照。
+blocked_by: []
+code_targets:
+  backend: erp-service-php
+  frontend: dtcplus-web-ts
+docs:
+  - docs/v0.28.4/tasks/0185/product-plan.md
+contract: specs/v0.28.4/slices/ERP-SLICE-ORD-001/contract.md
+
