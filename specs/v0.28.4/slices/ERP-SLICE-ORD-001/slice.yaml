@@ -4,7 +4,7 @@ domain: ORD
 status: DEFINED
 definition_revision: 1
 slice_type: implementation
-business_outcome: 用户可按仓库、国家和物流渠道配置申报规则，并以一位小数比例或固定总额生成守恒且可冻结的履约申报快照。
+business_outcome: 用户可在现有 workflow 条件组按仓库选择物流渠道，并以一位小数比例或两位小数固定金额、SKU 占比生成全行截断且可冻结的履约申报快照。
 blocked_by: []
 code_targets:
   backend: erp-service-php
