@@ -1,0 +1,16 @@
+slice_id: ERP-SLICE-ORD-001
+title: 自动履约按计费重量安全选择物流渠道
+slice_kind: WRITE
+slice_type: vertical
+entry_mode: NEW_CAPABILITY
+domain: ORD
+business_outcome: 运营可配置渠道体积重系数，自动履约能按计费重量判断并在数据不完整时安全阻断。
+blocked_by: []
+depends_on: []
+prd_ref: docs/v0.28.4/tasks/0189/product-plan.md
+code_targets:
+  backend:
+    - erp-service-php/app/Models/Ims/ImsLogisticsChannel.php
+    - erp-service-php/app/Admin/Controllers/Warehouse/LogisticsChannelController.php
+    - erp-service-php/app/Domains/Flow/Services/Executor/ObjectAttribute
+  frontend: []
