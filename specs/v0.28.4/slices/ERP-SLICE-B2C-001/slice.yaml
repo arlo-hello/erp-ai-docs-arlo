@@ -1,0 +1,15 @@
+slice_id: ERP-SLICE-B2C-001
+title: 多张原履约单可安全组合为一次仓库履约
+domain: B2C
+status: DEFINED
+definition_revision: 1
+slice_type: implementation
+business_outcome: 操作员可将严格同构的多张未推仓履约单组合并仅推仓一次，同时保持库存守恒、原单可追溯和 Shopify 最终同步完成。
+blocked_by: []
+code_targets:
+  backend: erp-service-php
+  frontend: dtcplus-web-ts
+docs:
+  - docs/v0.28.4/tasks/0190/requirement-analysis.md
+  - docs/v0.28.4/tasks/0190/product-plan.md
+contract: specs/v0.28.4/slices/ERP-SLICE-B2C-001/contract.md
