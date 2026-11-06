@@ -2,9 +2,9 @@ slice_id: ERP-SLICE-ORD-001
 title: 履约申报规则可按渠道精细控制金额
 domain: ORD
 status: DEFINED
-definition_revision: 1
+definition_revision: 2
 slice_type: implementation
-business_outcome: 用户可在现有 workflow 条件组按仓库选择物流渠道，并以一位小数比例或两位小数固定金额、SKU 占比生成全行截断且可冻结的履约申报快照。
+business_outcome: 用户可在现有 workflow 条件组按仓库选择物流渠道，并将固定总金额按产品分类及运行时实际 SKU 两级分摊，生成全行截断且可冻结的履约申报快照。
 blocked_by: []
 code_targets:
   backend: erp-service-php
