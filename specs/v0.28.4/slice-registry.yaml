@@ -1,5 +1,5 @@
 version: v0.28.4
-updated_at: 2026-10-28
+updated_at: 2026-11-04
 id_pattern: ^ERP-SLICE-(PRODUCT|ORD|B2C|IMS|ASS|FIN|PUR|PLAT)-[0-9]{3,4}$
 domains:
   - PRODUCT
@@ -18,9 +18,16 @@ slices:
     slice_kind: WRITE
     blocked_by: []
     contract: specs/v0.28.4/slices/ERP-SLICE-PLAT-001/contract.md
+  - slice_id: ERP-SLICE-ORD-001
+    title: 履约申报规则可按渠道精细控制金额
+    domain: ORD
+    status: DEFINED
+    slice_kind: WRITE
+    blocked_by: []
+    contract: specs/v0.28.4/slices/ERP-SLICE-ORD-001/contract.md
 summary:
-  total_slices: 1
-  write: 1
+  total_slices: 2
+  write: 2
   read_only: 0
-  defined: 1
+  defined: 2
   candidate: 0

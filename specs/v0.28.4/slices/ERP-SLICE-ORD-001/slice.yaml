@@ -1,0 +1,15 @@
+slice_id: ERP-SLICE-ORD-001
+title: 履约申报规则可按渠道精细控制金额
+domain: ORD
+status: DEFINED
+definition_revision: 4
+slice_type: implementation
+business_outcome: 用户可按所选分类及全部子分类计算并展示 USD 履约商品申报金额，固定金额全链路统一 USD，0值阻断推仓。
+blocked_by: []
+code_targets:
+  backend: erp-service-php
+  frontend: dtcplus-web-ts
+docs:
+  - docs/v0.28.4/tasks/0185/product-plan.md
+contract: specs/v0.28.4/slices/ERP-SLICE-ORD-001/contract.md
+
