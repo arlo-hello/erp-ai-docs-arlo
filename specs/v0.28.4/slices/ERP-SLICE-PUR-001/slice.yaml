@@ -2,9 +2,9 @@ slice_id: ERP-SLICE-PUR-001
 title: 多张采购发货单可合并预报并完整入库
 domain: PUR
 status: DEFINED
-definition_revision: 3
+definition_revision: 4
 slice_type: implementation
-business_outcome: 采购员可将同采购主体、同仓多张采购发货单按普通预报的目的主体与中转规则合并为一张采购入库单，并完整追溯每条来源。
+business_outcome: 发货列表统一从选中态发起预报；单选保持普通预报，多选同采购主体、同原目的/收货仓库发货单只生成一张采购入库单并完整追溯来源。
 blocked_by: []
 code_targets:
   backend: erp-service-php
