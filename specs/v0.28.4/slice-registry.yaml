@@ -18,9 +18,16 @@ slices:
     slice_kind: WRITE
     blocked_by: []
     contract: specs/v0.28.4/slices/ERP-SLICE-PLAT-001/contract.md
+  - slice_id: ERP-SLICE-PUR-001
+    title: 多张采购发货单可合并预报并完整入库
+    domain: PUR
+    status: DEFINED
+    slice_kind: WRITE
+    blocked_by: []
+    contract: specs/v0.28.4/slices/ERP-SLICE-PUR-001/contract.md
 summary:
-  total_slices: 1
-  write: 1
+  total_slices: 2
+  write: 2
   read_only: 0
-  defined: 1
+  defined: 2
   candidate: 0
