@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import os
 import re
 import subprocess
 import sys
@@ -162,7 +163,12 @@ def registry_paths(root: Path, branch: str) -> tuple[list[Path], list[str]]:
 
 def main() -> int:
     root = Path.cwd()
-    branch = git("branch", "--show-current")
+    branch = (
+        git("branch", "--show-current")
+        or os.environ.get("GITHUB_HEAD_REF")
+        or os.environ.get("GITHUB_REF_NAME")
+        or "HEAD"
+    )
     files = changed_files()
     issues = check_files(files)
 
