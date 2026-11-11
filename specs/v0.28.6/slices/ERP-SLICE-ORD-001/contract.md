@@ -1,7 +1,7 @@
 # ERP-SLICE-ORD-001 自动履约按计费重量安全选择物流渠道
 
 - slice_id: ERP-SLICE-ORD-001
-- status: DEFINED
+- status: CANDIDATE
 - business_outcome: 运营可配置渠道体积重系数，自动履约能按计费重量判断并在数据不完整时安全阻断。
 - blocked_by: []
 - 切片类型：vertical
