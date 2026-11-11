@@ -18,9 +18,16 @@ slices:
     slice_kind: WRITE
     blocked_by: []
     contract: specs/v0.28.6/slices/ERP-SLICE-ORD-001/contract.md
+  - slice_id: ERP-SLICE-ORD-002
+    title: 自动履约按计费重量安全选择物流渠道
+    domain: ORD
+    status: DEFINED
+    slice_kind: WRITE
+    blocked_by: []
+    contract: specs/v0.28.6/slices/ERP-SLICE-ORD-002/contract.md
 summary:
-  total_slices: 1
-  write: 1
+  total_slices: 2
+  write: 2
   read_only: 0
-  defined: 1
+  defined: 2
   candidate: 0
