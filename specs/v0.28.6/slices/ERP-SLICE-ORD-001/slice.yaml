@@ -1,0 +1,16 @@
+slice_id: ERP-SLICE-ORD-001
+title: 履约申报规则可按渠道精细控制金额
+domain: ORD
+status: DEFINED
+definition_revision: 7
+slice_type: implementation
+business_outcome: 用户可配置多个有序分类分摊条件组，以首个完整匹配组计算并展示 USD 履约商品申报金额，全组未命中异常，0值阻断推仓。
+blocked_by: []
+code_targets:
+  backend: erp-service-php
+  frontend: dtcplus-web-ts
+docs:
+  - docs/v0.28.6/tasks/0185/product-plan.md
+  - docs/v0.28.6/tasks/0185/V0.28.6-ERP-185-PRD.md
+contract: specs/v0.28.6/slices/ERP-SLICE-ORD-001/contract.md
+
