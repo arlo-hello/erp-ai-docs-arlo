@@ -40,7 +40,9 @@ def run(
 
 
 def git(*args: str) -> str:
-    return run(["git", *args]).stdout.strip()
+    # Porcelain status uses a leading space as part of the two-column state.
+    # Preserve it while still removing the command's trailing newline.
+    return run(["git", *args]).stdout.rstrip()
 
 
 def staged_changes_exist() -> bool:
