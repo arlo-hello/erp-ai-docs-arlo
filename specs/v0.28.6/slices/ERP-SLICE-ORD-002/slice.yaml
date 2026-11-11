@@ -1,4 +1,4 @@
-slice_id: ERP-SLICE-ORD-001
+slice_id: ERP-SLICE-ORD-002
 title: 自动履约按计费重量安全选择物流渠道
 slice_kind: WRITE
 slice_type: vertical

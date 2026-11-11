@@ -11,13 +11,13 @@ domains:
   - PUR
   - PLAT
 slices:
-  - slice_id: ERP-SLICE-ORD-001
+  - slice_id: ERP-SLICE-ORD-002
     title: 自动履约按计费重量安全选择物流渠道
     domain: ORD
     status: CANDIDATE
     slice_kind: WRITE
     blocked_by: []
-    contract: specs/v0.28.6/slices/ERP-SLICE-ORD-001/contract.md
+    contract: specs/v0.28.6/slices/ERP-SLICE-ORD-002/contract.md
 summary:
   total_slices: 1
   write: 1
