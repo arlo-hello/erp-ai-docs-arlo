@@ -1,5 +1,5 @@
 version: v0.28.6
-updated_at: 2026-11-10
+updated_at: 2026-11-11
 id_pattern: ^ERP-SLICE-(PRODUCT|ORD|B2C|IMS|ASS|FIN|PUR|PLAT)-[0-9]{3,4}$
 domains:
   - PRODUCT
@@ -25,9 +25,16 @@ slices:
     slice_kind: WRITE
     blocked_by: []
     contract: specs/v0.28.6/slices/ERP-SLICE-ORD-002/contract.md
+  - slice_id: ERP-SLICE-PUR-001
+    title: 多张采购发货单可合并预报并完整入库
+    domain: PUR
+    status: DEFINED
+    slice_kind: WRITE
+    blocked_by: []
+    contract: specs/v0.28.6/slices/ERP-SLICE-PUR-001/contract.md
 summary:
-  total_slices: 2
-  write: 2
+  total_slices: 3
+  write: 3
   read_only: 0
-  defined: 2
+  defined: 3
   candidate: 0
