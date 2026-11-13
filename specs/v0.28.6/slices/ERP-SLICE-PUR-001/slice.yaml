@@ -4,7 +4,7 @@ domain: PUR
 status: DEFINED
 definition_revision: 5
 slice_type: implementation
-business_outcome: 发货列表统一从选中态发起预报；单选保持普通预报，多选同采购主体、同原目的/收货仓库发货单只生成一张采购入库单并完整追溯来源。
+business_outcome: 发货列表复用标准批量操作发起合并预报；单选保留普通预报行操作，多选同采购主体、同原目的/收货仓库发货单只生成一张采购入库单并完整追溯来源。
 blocked_by: []
 code_targets:
   backend: erp-service-php
