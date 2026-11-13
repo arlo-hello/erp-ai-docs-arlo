@@ -4,7 +4,7 @@ domain: PUR
 status: DEFINED
 definition_revision: 5
 slice_type: implementation
-business_outcome: 发货列表统一从选中态发起预报；单选保持普通预报，多选同采购主体、同原目的/收货仓库发货单只生成一张采购入库单并完整追溯来源。
+business_outcome: 发货列表复用标准批量操作发起合并预报；普通及合并预报在目的系统为 NFL 时实时选择目的渠道，合并来源原采购单整单核算维度唯一时只生成一张采购入库单，并将目的渠道持续传递至 NFL 自动采购单商品行。
 blocked_by: []
 code_targets:
   backend: erp-service-php
