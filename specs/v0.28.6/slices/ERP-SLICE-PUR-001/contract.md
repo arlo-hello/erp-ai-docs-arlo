@@ -35,7 +35,7 @@
 | AC-020 | 目的渠道实时读取 NFL；提交时后端实时复核，NFL 超时、不可用或渠道失效时返回业务错误，不创建入库单且不降级读取 FL 本地主数据 | backend unit/feature；NFL 成功、超时、失效使用 explicit mock；frontend component；E2E |
 | AC-021 | 合并预报按所有来源发货单对应原采购单整单商品行计算“项目+渠道+区域”唯一组合数；组合数不为 1 时前端禁用 NFL，绕过前端提交时后端拒绝 | backend unit/feature；frontend component；多采购单 fixture；E2E |
 | AC-022 | 目的渠道编码与名称写入采购入库单并持续传递，采购入库详情不展示；不中转时 NFL 普通采购单、发货单、入库单商品渠道统一使用目的渠道 | migration/schema test；backend feature；NFL 下游消费者 explicit mock；API contract test |
-| AC-023 | 中转时 FL B2B 订单、NFL 普通采购单、NFL 发货单和 NFL 入库单商品渠道统一使用目的渠道 | backend feature；FL/NFL 跨系统消费者 explicit mock；链路 E2E |
+| AC-023 | 中转时 NFL 普通采购单、NFL 发货单和 NFL 入库单商品渠道统一使用目的渠道；FL B2B 订单渠道不使用目的渠道覆盖 | backend feature；NFL 跨系统消费者 explicit mock；链路 E2E；FL B2B 回归测试 |
 | AC-024 | 中转时 NFL 预报调拨单、调拨入库单、调拨出库单详情产品明细渠道统一使用目的渠道，链路中不得回落为来源渠道 | backend feature；三类调拨消费者 explicit mock；链路 E2E |
 
 ## 测试边界
@@ -73,7 +73,7 @@
 17. 目的渠道编码与名称写入采购入库单并持续传递至后续链路；采购入库详情不展示。
 18. NFL 自动生成普通采购单时，全部商品行渠道统一使用目的渠道；项目和区域沿用通过唯一性校验的原采购维度。
 19. 不中转时，NFL 普通采购单及后续自动生成的发货单、入库单商品渠道均使用目的渠道。
-20. 中转时，FL B2B 订单、NFL 普通采购单及后续 NFL 发货单、入库单商品渠道均使用目的渠道。
+20. 中转时，NFL 普通采购单及后续 NFL 发货单、入库单商品渠道均使用目的渠道；FL B2B 订单渠道不使用目的渠道覆盖。
 21. 中转链路的 NFL 预报调拨单、调拨入库单、调拨出库单详情产品明细渠道均使用目的渠道；任何消费者不得回落到来源渠道。
 
 ## 晋升条件
