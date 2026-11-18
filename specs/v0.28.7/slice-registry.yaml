@@ -1,0 +1,19 @@
+schema: 1
+current_version: v0.28.7
+domains:
+  - PRODUCT
+  - ORD
+  - B2C
+  - IMS
+  - ASS
+  - FIN
+  - PUR
+  - PLAT
+id_pattern: '^ERP-SLICE-(PRODUCT|ORD|B2C|IMS|ASS|FIN|PUR|PLAT)-[0-9]{3,4}$'
+slices: []
+summary:
+  total_slices: 0
+  write: 0
+  read_only: 0
+  defined: 0
+  candidate: 0
