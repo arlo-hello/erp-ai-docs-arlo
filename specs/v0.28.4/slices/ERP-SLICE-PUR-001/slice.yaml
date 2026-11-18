@@ -1,0 +1,14 @@
+slice_id: ERP-SLICE-PUR-001
+title: 负责人可安全配置并发布不可变自动化流程
+domain: PUR
+status: CANDIDATE
+definition_revision: 1
+slice_type: implementation
+business_outcome: 负责人可创建、校验、发布、停用和删除自动化流程，运行实例始终读取不可变版本。
+blocked_by: []
+code_targets:
+  backend: erp-service-php
+  frontend: backoffice-web-ts
+docs:
+  - docs/v0.28.4/tasks/0205/product-plan.md
+contract: specs/v0.28.4/slices/ERP-SLICE-PUR-001/contract.md
