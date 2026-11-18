@@ -1,0 +1,15 @@
+slice_id: ERP-SLICE-PUR-002
+title: 来源单据完成后可幂等执行单动作并追溯结果
+domain: PUR
+status: CANDIDATE
+definition_revision: 1
+slice_type: implementation
+business_outcome: 业务选择流程后，来源单据完成可触发一个动作，重复事件不重复建单，失败可从原节点恢复。
+blocked_by:
+  - ERP-SLICE-PUR-001
+code_targets:
+  backend: erp-service-php
+  frontend: backoffice-web-ts
+docs:
+  - docs/v0.28.7/tasks/0205/product-plan.md
+contract: specs/v0.28.7/slices/ERP-SLICE-PUR-002/contract.md
