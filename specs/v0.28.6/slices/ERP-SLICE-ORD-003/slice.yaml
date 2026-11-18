@@ -1,0 +1,17 @@
+slice_id: ERP-SLICE-ORD-003
+title: 履约工作流可用假设渠道连续判定并安全切换正式渠道
+slice_kind: WRITE
+slice_type: vertical
+entry_mode: NEW_CAPABILITY
+domain: ORD
+business_outcome: 外部平台订单缺少物流渠道时，可注入仅本次执行有效的假设渠道供后续节点使用，并由正式渠道安全覆盖。
+blocked_by: [ERP-SLICE-ORD-002]
+depends_on: [ERP-SLICE-ORD-002]
+prd_ref: docs/v0.28.6/tasks/0189/V0.28.6-ERP-189-PRD.md
+code_targets:
+  backend:
+    - erp-service-php/app/Domains/Flow/Services/Executor/RunFlow.php
+    - erp-service-php/app/Domains/Flow/Services/Executor/ObjectAction/OrderAction.php
+    - erp-service-php/app/Api/Controllers/Flows/TriggerActionsController.php
+    - erp-service-php/database/migrations
+  frontend: []
