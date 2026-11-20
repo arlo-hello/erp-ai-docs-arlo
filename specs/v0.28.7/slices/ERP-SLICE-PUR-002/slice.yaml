@@ -2,7 +2,7 @@ slice_id: ERP-SLICE-PUR-002
 title: 基于采购入库创建并提交下一层内部采购
 domain: PUR
 status: DEFINED
-definition_revision: 2
+definition_revision: 3
 slice_type: implementation
 business_outcome: 用户可基于同一采购订单下一张或多张采购入库单创建并提交可追溯、幂等且数量受控的下一层内部采购。
 blocked_by:

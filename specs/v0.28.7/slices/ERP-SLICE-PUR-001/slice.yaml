@@ -2,7 +2,7 @@ slice_id: ERP-SLICE-PUR-001
 title: Agent以用户本人ERP身份安全查询采购链路
 domain: PUR
 status: DEFINED
-definition_revision: 2
+definition_revision: 3
 slice_type: implementation
 business_outcome: Agent可使用当前用户ERP身份查询采购、入库、B2B、自动调拨、库存流水及下一可执行动作，且不泄露越权数据。
 blocked_by: []
