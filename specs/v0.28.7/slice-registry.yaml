@@ -12,29 +12,29 @@ domains:
 id_pattern: '^ERP-SLICE-(PRODUCT|ORD|B2C|IMS|ASS|FIN|PUR|PLAT)-[0-9]{3,4}$'
 slices:
   - slice_id: ERP-SLICE-PUR-001
-    title: 负责人可安全配置并发布不可变自动化流程
+    title: Agent以用户本人ERP身份安全查询采购链路
     domain: PUR
-    status: CANDIDATE
-    slice_kind: WRITE
+    status: DEFINED
+    slice_kind: READ_ONLY
     blocked_by: []
     contract: specs/v0.28.7/slices/ERP-SLICE-PUR-001/contract.md
   - slice_id: ERP-SLICE-PUR-002
-    title: 来源单据完成后可幂等执行单动作并追溯结果
+    title: 基于采购入库创建并提交下一层内部采购
     domain: PUR
-    status: CANDIDATE
+    status: DEFINED
     slice_kind: WRITE
     blocked_by: [ERP-SLICE-PUR-001]
     contract: specs/v0.28.7/slices/ERP-SLICE-PUR-002/contract.md
   - slice_id: ERP-SLICE-PUR-003
-    title: 采购入库与调拨可按多动作流程端到端接续
+    title: 内采B2B履约与采购自动调拨端到端接续
     domain: PUR
-    status: CANDIDATE
+    status: DEFINED
     slice_kind: WRITE
     blocked_by: [ERP-SLICE-PUR-001, ERP-SLICE-PUR-002]
     contract: specs/v0.28.7/slices/ERP-SLICE-PUR-003/contract.md
 summary:
   total_slices: 3
-  write: 3
-  read_only: 0
-  defined: 0
-  candidate: 3
+  write: 2
+  read_only: 1
+  defined: 3
+  candidate: 0

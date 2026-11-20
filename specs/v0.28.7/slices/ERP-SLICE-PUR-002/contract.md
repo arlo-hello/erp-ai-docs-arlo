@@ -1,11 +1,11 @@
-# ERP-SLICE-PUR-002 单动作运行与幂等恢复契约
+# ERP-SLICE-PUR-002 多层内部采购创建与提交契约
 
-> 状态：`CANDIDATE`。依赖未合并时使用固定版本 fixture 独立验证。
+> 状态：`DEFINED`；切片类型：`implementation`。
 
 ## 基本信息
 
 - slice_id: ERP-SLICE-PUR-002
-- business_outcome: 业务选择流程后，来源单据完成可触发一个动作，重复事件不重复建单，失败可从原节点恢复。
+- business_outcome: 用户可基于同一采购订单下一张或多张采购入库单创建并提交可追溯、幂等且数量受控的下一层内部采购。
 - blocked_by: [ERP-SLICE-PUR-001]
 - 切片类型：implementation
 
@@ -13,29 +13,31 @@
 
 | AC | 可观察结果 | 验证方式 |
 |---|---|---|
-| AC-001 | 合法来源单据可选择已启用流程并冻结版本、来源明细与数量 | backend feature；E2E；依赖未合并用 fixture |
-| AC-002 | 同一来源明细的已占用数量不可被旧自动链或另一实例重复占用 | unit；backend feature 并发测试 |
-| AC-003 | 各入口仅在约定完结节点触发；未完成和重复完成事件不重复执行 | unit 参数化；backend feature |
-| AC-004 | 单个内采、发货、直接、预报、虚拟调拨动作可由适配器生成目标单据关联 | adapter contract；各类型 explicit mock |
-| AC-005 | 同一实例节点重复执行只返回原目标单据，不创建第二张单据 | backend feature 幂等测试 |
-| AC-006 | 跨系统超时进入结果未知，恢复时先查询目标单据再决定重试 | unit；explicit mock |
-| AC-007 | 动作失败停止后续，异常负责人可见失败原因、输入摘要和已成功结果 | backend feature；E2E |
-| AC-008 | 成功、失败、重复和恢复均记录审计日志且可从来源追溯目标单据 | backend feature |
+| AC-001 | 无来源时可生成普通采购或内部采购预览，缺失必填值时返回追问项 | unit；backend feature |
+| AC-002 | 一张或多张来源入库单必须属于同一采购订单，否则拒绝预览 | unit；backend feature |
+| AC-003 | 来源预览逐明细返回实际入库、已续采、默认数量和可用数量 | unit；backend feature |
+| AC-004 | 默认继承来源采购订单价格、税率、币种、付款及交货条件，用户可按现有权限修改 | backend feature |
+| AC-005 | 数量可调小但累计不得超过来源可用量；超量提示改走无来源新内采 | unit；backend feature；并发测试 |
+| AC-006 | 创建结果保存根采购、直接来源采购、来源入库明细、层级和上一主体，允许A→B→A | backend feature |
+| AC-007 | 同一身份、工具、来源和客户端请求标识重复调用只返回首次采购单 | backend feature；并发幂等测试 |
+| AC-008 | 提交前要求确认摘要；提交后进入飞书审批且MCP没有审核能力 | backend feature；contract；E2E |
+| AC-009 | 审批状态可查询为待审批、审批中、通过、不通过或撤销 | backend feature |
+| AC-010 | 审计保存默认建议值、用户确认值和ERP最终值，不要求页面展示修改前值 | backend feature |
 
 ## 测试边界
 
 - 独立验证声明：是
-- 配置依赖以冻结版本 fixture 替代。
-- 包含：选择、快照、完结判定、单动作、幂等、数量占用、异常恢复、审计。
-- 不包含：多动作真实串联、跨系统生产联调、分批推进与自动审批。
+- 包含：预览、来源合并、字段继承、数量占用、追溯、创建、提交、幂等和审计。
+- 不包含：采购审核、B2B真实履约、真实库存变化、独立调拨创建。
+- 写操作使用现有采购校验，不复制领域规则。
 
 ## 依赖与 Mock 策略
 
-- 前置切片：ERP-SLICE-PUR-001；依赖内容为发布版本契约。
-- 合并前 mock：只读固定流程版本 fixture，不依赖配置页面或配置表真实存在。
-- 外部系统：WMS/FL/NFL 单据适配器使用 explicit mock 覆盖成功、业务失败、超时、查询已存在。
-- 验证顺序：unit → adapter contract → backend feature → frontend E2E → 依赖合并后的契约回归。
+- 前置切片：ERP-SLICE-PUR-001；合并前使用固定查询契约fixture。
+- 飞书仅mock“接受提交”和审批状态回写，不mock MCP审核。
+- B2B自动建单、WMS和库存副作用使用explicit mock，验证本切片不越界调用。
+- 验证顺序：unit → contract → backend feature → 并发幂等 → E2E。
 
 ## 晋升条件
 
-D01至D04关闭、五类动作适配器责任边界确认、旧自动链互斥方案通过技术评审后，才可改为 `DEFINED`。
+来源数量并发保护和幂等方案通过技术评审、契约检查通过并完成人工产品评审后方可升READY。

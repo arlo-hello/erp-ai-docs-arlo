@@ -1,16 +1,16 @@
 slice_id: ERP-SLICE-PUR-003
-title: 采购入库与调拨可按多动作流程端到端接续
+title: 内采B2B履约与采购自动调拨端到端接续
 domain: PUR
-status: CANDIDATE
-definition_revision: 1
+status: DEFINED
+definition_revision: 2
 slice_type: final
-business_outcome: 采购、入库与调拨来源可按冻结流程完成条件判断和多动作有序接续，异常恢复后不重复已成功节点。
+business_outcome: 内部采购生成B2B订单后，用户可通过Agent完成必要履约、采购入库及采购链路自动调拨处理，并追溯库存流水。
 blocked_by:
   - ERP-SLICE-PUR-001
   - ERP-SLICE-PUR-002
 code_targets:
   backend: erp-service-php
-  frontend: backoffice-web-ts
+  frontend: erp-web-js
 docs:
   - docs/v0.28.7/tasks/0205/product-plan.md
 contract: specs/v0.28.7/slices/ERP-SLICE-PUR-003/contract.md
