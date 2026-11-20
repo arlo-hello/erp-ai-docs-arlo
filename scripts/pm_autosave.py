@@ -40,7 +40,8 @@ def run(
 
 
 def git(*args: str) -> str:
-    return run(["git", *args]).stdout.strip()
+    # Preserve the leading status column from `git status --porcelain`.
+    return run(["git", *args]).stdout.rstrip()
 
 
 def staged_changes_exist() -> bool:
