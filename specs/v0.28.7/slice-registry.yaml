@@ -10,10 +10,43 @@ domains:
   - PUR
   - PLAT
 id_pattern: '^ERP-SLICE-(PRODUCT|ORD|B2C|IMS|ASS|FIN|PUR|PLAT)-[0-9]{3,4}$'
-slices: []
+slices:
+  - slice_id: ERP-SLICE-ORD-001
+    name: 接收样机申请并完成自动或人工推仓
+    slice_kind: WRITE
+    status: DEFINED
+    value_stream: sample-outbound-to-warehouse
+    capability: sample-outbound-routing
+    domain_owner: ORD
+    business_owner: operations
+    depends_on: []
+    source_ref: docs/v0.28.7/tasks/0208/product-plan.md
+    notes: 外部系统均可通过契约 mock 独立验证
+  - slice_id: ERP-SLICE-IMS-001
+    name: 关联多张WMS发货单并汇总出库结果
+    slice_kind: WRITE
+    status: DEFINED
+    value_stream: sample-outbound-to-warehouse
+    capability: wms-split-shipment-correlation
+    domain_owner: IMS
+    business_owner: warehouse
+    depends_on: []
+    source_ref: docs/v0.28.7/tasks/0208/product-plan.md
+    notes: 使用测试工厂创建ERP出库流水后独立验证
+  - slice_id: ERP-SLICE-PLAT-001
+    name: 同步样机办理进度至飞书与样机系统
+    slice_kind: WRITE
+    status: DEFINED
+    value_stream: sample-outbound-to-warehouse
+    capability: sample-outbound-status-sync
+    domain_owner: PLAT
+    business_owner: operations
+    depends_on: []
+    source_ref: docs/v0.28.7/tasks/0208/product-plan.md
+    notes: 使用标准状态事件与外部契约mock独立验证
 summary:
-  total_slices: 0
-  write: 0
+  total_slices: 3
+  write: 3
   read_only: 0
-  defined: 0
+  defined: 3
   candidate: 0
