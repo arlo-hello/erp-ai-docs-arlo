@@ -1,0 +1,10 @@
+# ERP-208 任务档案
+
+- 版本：v0.28.7
+- 四位任务号：0208
+- 业务目标：样机申请自动进入 ERP，按样机侧分流完成自动 Workflow 推仓或待推送补齐后人工推仓，并同步飞书与样机。
+- 影响范围：订单域、库存域、平台集成域；复用售后 RMA 边界。
+- 核心方案：ERP 单据 1:1；WMS 发货单 1:N；ERP 为办理状态权威源。
+- 文档：`requirement-analysis.md`、`product-plan.md`。
+- 切片：ERP-SLICE-ORD-001、ERP-SLICE-IMS-001、ERP-SLICE-PLAT-001。
+

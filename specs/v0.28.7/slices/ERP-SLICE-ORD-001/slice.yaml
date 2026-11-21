@@ -1,0 +1,19 @@
+slice_id: ERP-SLICE-ORD-001
+name: 接收样机申请并完成自动或人工推仓
+slice_kind: WRITE
+entry_mode: NEW_CAPABILITY
+value_stream: sample-outbound-to-warehouse
+capability: sample-outbound-routing
+primary_actor: operations
+domain_owner: ORD
+blocked_by: []
+depends_on: []
+prd_ref: docs/v0.28.7/tasks/0208/product-plan.md
+code_targets:
+  backend:
+    path: erp-service-php/app/Domains/OtherOutboundOrders
+    layers: [Controllers, Services, Models]
+  frontend:
+    path: backoffice-web-ts/apps/erp/src/pages
+    layers: [Pages, API]
+

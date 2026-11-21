@@ -15,8 +15,9 @@ LEGACY_SLICE_ID_PATTERN = re.compile(r"^SL-[A-Z0-9]+(-[A-Z0-9]+)*$")
 
 
 def check_registry(path):
+    path = Path(path)
     issues = []
-    registry = yaml.safe_load(Path(path).read_text(encoding="utf-8"))
+    registry = yaml.safe_load(path.read_text(encoding="utf-8"))
     slices = registry.get("slices", [])
 
     seen = {}

@@ -57,7 +57,8 @@ def repository() -> str:
 
 def changed_paths() -> set[str]:
     paths: set[str] = set()
-    for line in git("status", "--porcelain=v1").splitlines():
+    status_output = run(["git", "status", "--porcelain=v1"]).stdout
+    for line in status_output.splitlines():
         if not line:
             continue
         value = line[3:]
