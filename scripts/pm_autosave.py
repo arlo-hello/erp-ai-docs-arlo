@@ -207,11 +207,16 @@ def multica_record(
     refs: dict[str, object],
     comment: str,
     skip_multica: bool,
+    parent: str | None,
 ) -> None:
     if skip_multica:
         return
+    cli = os.environ.get("MULTICA_CLI_PATH", "multica")
+    comment_command = [cli, "issue", "comment", "add", issue, "--content-stdin"]
+    if parent:
+        comment_command.extend(["--parent", parent])
     result = run(
-        ["multica", "issue", "comment", "add", issue, "--content-stdin"],
+        comment_command,
         input_text=comment,
         check=False,
     )
@@ -223,7 +228,7 @@ def multica_record(
         encoded = json.dumps(value, ensure_ascii=False, separators=(",", ":"))
         result = run(
             [
-                "multica",
+                cli,
                 "issue",
                 "metadata",
                 "set",
@@ -254,6 +259,7 @@ def main() -> int:
     parser.add_argument("--message")
     parser.add_argument("--draft", action="store_true")
     parser.add_argument("--skip-multica", action="store_true")
+    parser.add_argument("--parent")
     args = parser.parse_args()
 
     branch = git("branch", "--show-current")
@@ -337,7 +343,7 @@ State: `{state}`
     comment = body
     if not created and pr.startswith("https://github.com/"):
         comment += f"\nPR: {pr}\n"
-    multica_record(issue, refs, comment, args.skip_multica)
+    multica_record(issue, refs, comment, args.skip_multica, args.parent)
 
     print(f"committed: {commit}")
     print(f"branch: {branch}")
