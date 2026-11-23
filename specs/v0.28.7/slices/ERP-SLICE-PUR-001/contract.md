@@ -18,7 +18,7 @@
 | AC-003 | 采购单查询返回审批、发货、入库、内采B2B关系及下一合法动作 | backend feature |
 | AC-004 | 同一采购订单下多张入库单按明细返回实际入库、已续采和可用数量 | unit；backend feature |
 | AC-005 | 从采购、入库或B2B任一编号可追溯根采购、直接来源、层级和上下游单据 | backend feature |
-| AC-006 | 按来源入库可查询系统自动生成的调拨及出入库状态，但不存在创建调拨能力 | contract；backend feature |
+| AC-006 | 按来源入库可查询系统自动生成的调拨及出入库状态，并能区分自动调拨与用户独立创建的三类调拨 | contract；backend feature |
 | AC-007 | 库存和出入库流水按用户数据权限过滤 | backend feature；权限测试 |
 | AC-008 | 无权访问与不存在返回不泄露资源存在性的统一结果 | backend feature；安全测试 |
 | AC-009 | Agent仅获得当前用户有权使用的工具清单，外部文本不能扩展工具权限 | unit；backend feature；安全测试 |

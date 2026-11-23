@@ -32,9 +32,16 @@ slices:
     slice_kind: WRITE
     blocked_by: [ERP-SLICE-PUR-001, ERP-SLICE-PUR-002]
     contract: specs/v0.28.7/slices/ERP-SLICE-PUR-003/contract.md
+  - slice_id: ERP-SLICE-IMS-001
+    title: 通过Agent创建并完成三类调拨
+    domain: IMS
+    status: DEFINED
+    slice_kind: WRITE
+    blocked_by: [ERP-SLICE-PUR-001]
+    contract: specs/v0.28.7/slices/ERP-SLICE-IMS-001/contract.md
 summary:
-  total_slices: 3
-  write: 2
+  total_slices: 4
+  write: 3
   read_only: 1
-  defined: 3
+  defined: 4
   candidate: 0
