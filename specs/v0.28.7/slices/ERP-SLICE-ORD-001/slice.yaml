@@ -1,9 +1,9 @@
 slice_id: ERP-SLICE-ORD-001
-name: 接收样机申请并完成自动或人工推仓
+name: 接收样机申请并通过独立Workflow自动推仓
 slice_kind: WRITE
 entry_mode: NEW_CAPABILITY
 value_stream: sample-outbound-to-warehouse
-capability: sample-outbound-routing
+capability: sample-outbound-workflow
 primary_actor: operations
 domain_owner: ORD
 blocked_by: []

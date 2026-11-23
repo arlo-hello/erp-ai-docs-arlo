@@ -1,5 +1,5 @@
 slice_id: ERP-SLICE-PLAT-001
-name: 同步样机办理进度至飞书与样机系统
+name: 同步异常至飞书并回传出库完成
 slice_kind: WRITE
 entry_mode: NEW_CAPABILITY
 value_stream: sample-outbound-to-warehouse
