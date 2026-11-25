@@ -34,7 +34,7 @@ slices:
     source_ref: docs/v0.28.7/tasks/0208/product-plan.md
     notes: 使用测试工厂创建ERP出库流水后独立验证
   - slice_id: ERP-SLICE-PLAT-001
-    name: 同步异常至飞书并回传出库完成
+    name: 同步异常至飞书和样机系统并回传出库完成
     slice_kind: WRITE
     status: DEFINED
     value_stream: sample-outbound-to-warehouse
