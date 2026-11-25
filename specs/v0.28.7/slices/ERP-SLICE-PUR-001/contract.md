@@ -16,7 +16,7 @@
 | AC-001 | MCP从ERP授权上下文识别用户，不接受调用方指定任意用户身份 | unit；backend feature |
 | AC-002 | 基础资料查询返回主体、供应商、账户、仓库、库区、SKU、项目、渠道、区域稳定标识 | backend feature；contract |
 | AC-003 | 采购单查询返回审批、发货、入库、内采B2B关系及下一合法动作 | backend feature |
-| AC-004 | 同一采购订单下多张入库单按明细返回实际入库、已续采和可用数量 | unit；backend feature |
+| AC-004 | 同一采购订单下多张入库单按明细返回实际入库数量与来源单据信息，不返回也不计算已续采/可用数量 | unit；backend feature |
 | AC-005 | 从采购、入库或B2B任一编号可追溯根采购、直接来源、层级和上下游单据 | backend feature |
 | AC-006 | 按来源入库可查询系统自动生成的调拨及出入库状态，并能区分自动调拨与用户独立创建的三类调拨 | contract；backend feature |
 | AC-007 | 库存和出入库流水按用户数据权限过滤 | backend feature；权限测试 |
