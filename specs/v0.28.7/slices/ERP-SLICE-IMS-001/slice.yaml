@@ -1,0 +1,19 @@
+slice_id: ERP-SLICE-IMS-001
+name: 记录单一仓库出库结果并安全取消
+slice_kind: WRITE
+entry_mode: NEW_CAPABILITY
+value_stream: sample-outbound-to-warehouse
+capability: single-wms-outbound-cancellation
+primary_actor: warehouse
+domain_owner: IMS
+blocked_by: []
+depends_on: []
+prd_ref: docs/v0.28.7/tasks/0208/product-plan.md
+code_targets:
+  backend:
+    path: erp-service-php/app/Domains/OtherOutboundOrders
+    layers: [Services, Models, Migrations]
+  frontend:
+    path: backoffice-web-ts/apps/erp/src/pages
+    layers: [Pages, API]
+
