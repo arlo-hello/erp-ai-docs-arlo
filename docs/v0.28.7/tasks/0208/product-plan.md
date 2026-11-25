@@ -44,6 +44,7 @@
 
 ```mermaid
 flowchart TB
+  %% 按责任主体划分泳道
   subgraph L1[样机系统]
     direction LR
     A[样机申请审批通过] --> B[自动推送ERP]
