@@ -1,0 +1,12 @@
+slice_id: ERP-SLICE-ORD-002
+title: 样机申请可自动建单推仓并形成异常闭环
+domain: ORD
+status: DEFINED
+slice_kind: WRITE
+blocked_by: []
+source_issue: ERP-210
+contract: specs/v0.28.7/slices/ERP-SLICE-ORD-002/contract.md
+docs:
+  - docs/v0.28.7/tasks/0210/product-plan.md
+  - docs/v0.28.7/tasks/0210/requirement-analysis.md
+
