@@ -10,5 +10,5 @@ code_targets:
   backend: erp-service-php
   frontend: erp-web-js
 docs:
-  - docs/v0.28.7/tasks/0205/product-plan.md
+  - docs/v0.28.7/tasks/0205/prd-feishu.md
 contract: specs/v0.28.7/slices/ERP-SLICE-PUR-001/contract.md
