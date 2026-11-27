@@ -11,6 +11,34 @@ domains:
   - PLAT
 id_pattern: '^ERP-SLICE-(PRODUCT|ORD|B2C|IMS|ASS|FIN|PUR|PLAT)-[0-9]{3,4}$'
 slices:
+  - slice_id: ERP-SLICE-PUR-001
+    title: Agent以用户本人ERP身份安全查询采购链路
+    domain: PUR
+    status: DEFINED
+    slice_kind: READ_ONLY
+    blocked_by: []
+    contract: specs/v0.28.7/slices/ERP-SLICE-PUR-001/contract.md
+  - slice_id: ERP-SLICE-PUR-002
+    title: 基于采购入库创建并提交下一层内部采购
+    domain: PUR
+    status: DEFINED
+    slice_kind: WRITE
+    blocked_by: [ERP-SLICE-PUR-001]
+    contract: specs/v0.28.7/slices/ERP-SLICE-PUR-002/contract.md
+  - slice_id: ERP-SLICE-PUR-003
+    title: 内采B2B履约与采购自动调拨端到端接续
+    domain: PUR
+    status: DEFINED
+    slice_kind: WRITE
+    blocked_by: [ERP-SLICE-PUR-001, ERP-SLICE-PUR-002]
+    contract: specs/v0.28.7/slices/ERP-SLICE-PUR-003/contract.md
+  - slice_id: ERP-SLICE-IMS-001
+    title: 通过Agent创建并完成三类调拨
+    domain: IMS
+    status: DEFINED
+    slice_kind: WRITE
+    blocked_by: [ERP-SLICE-PUR-001]
+    contract: specs/v0.28.7/slices/ERP-SLICE-IMS-001/contract.md
   - slice_id: ERP-SLICE-ORD-002
     title: 样机申请可自动建单推仓并形成异常闭环
     domain: ORD
@@ -19,8 +47,8 @@ slices:
     blocked_by: []
     contract: specs/v0.28.7/slices/ERP-SLICE-ORD-002/contract.md
 summary:
-  total_slices: 1
-  write: 1
-  read_only: 0
-  defined: 1
+  total_slices: 5
+  write: 4
+  read_only: 1
+  defined: 5
   candidate: 0

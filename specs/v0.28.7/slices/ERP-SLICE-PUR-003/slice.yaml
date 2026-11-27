@@ -1,0 +1,16 @@
+slice_id: ERP-SLICE-PUR-003
+title: 内采B2B履约与采购自动调拨端到端接续
+domain: PUR
+status: DEFINED
+definition_revision: 3
+slice_type: final
+business_outcome: 内部采购生成B2B订单后，用户可通过Agent完成必要履约、采购入库及采购链路自动调拨处理，并追溯库存流水。
+blocked_by:
+  - ERP-SLICE-PUR-001
+  - ERP-SLICE-PUR-002
+code_targets:
+  backend: erp-service-php
+  frontend: erp-web-js
+docs:
+  - docs/v0.28.7/tasks/0205/product-plan.md
+contract: specs/v0.28.7/slices/ERP-SLICE-PUR-003/contract.md

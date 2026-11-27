@@ -1,0 +1,15 @@
+slice_id: ERP-SLICE-PUR-002
+title: 基于采购入库创建并提交下一层内部采购
+domain: PUR
+status: DEFINED
+definition_revision: 3
+slice_type: implementation
+business_outcome: 用户可基于同一采购订单下一张或多张采购入库单创建并提交可追溯、幂等的下一层内部采购。
+blocked_by:
+  - ERP-SLICE-PUR-001
+code_targets:
+  backend: erp-service-php
+  frontend: erp-web-js
+docs:
+  - docs/v0.28.7/tasks/0205/product-plan.md
+contract: specs/v0.28.7/slices/ERP-SLICE-PUR-002/contract.md

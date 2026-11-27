@@ -1,0 +1,16 @@
+slice_id: ERP-SLICE-IMS-001
+title: 通过Agent创建并完成三类调拨
+domain: IMS
+status: DEFINED
+definition_revision: 1
+slice_type: implementation
+business_outcome: 用户可通过Agent创建并完成直接调拨、预报调拨、虚拟调拨，在现有ERP规则下调整仓库、库区、项目、渠道或区域归属；主体变化由内部采购完成。
+blocked_by:
+  - ERP-SLICE-PUR-001
+code_targets:
+  backend: erp-service-php
+  frontend: backoffice-web-ts
+docs:
+  - docs/v0.28.7/tasks/0205/product-plan.md
+  - docs/v0.28.7/tasks/0205/prd-feishu.md
+contract: specs/v0.28.7/slices/ERP-SLICE-IMS-001/contract.md
