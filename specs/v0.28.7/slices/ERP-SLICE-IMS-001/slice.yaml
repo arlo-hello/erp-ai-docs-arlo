@@ -11,6 +11,6 @@ code_targets:
   backend: erp-service-php
   frontend: backoffice-web-ts
 docs:
-  - docs/v0.28.7/tasks/0205/product-plan.md
+  - docs/v0.28.7/tasks/0205/prd-feishu.md
   - docs/v0.28.7/tasks/0205/prd-feishu.md
 contract: specs/v0.28.7/slices/ERP-SLICE-IMS-001/contract.md
