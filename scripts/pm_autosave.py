@@ -57,7 +57,10 @@ def repository() -> str:
 
 def changed_paths() -> set[str]:
     paths: set[str] = set()
-    for line in git("status", "--porcelain=v1").splitlines():
+    # Preserve leading status columns; git() strips stdout and can turn
+    # the first tracked entry from " M path" into "M path".
+    status = run(["git", "status", "--porcelain=v1"]).stdout
+    for line in status.splitlines():
         if not line:
             continue
         value = line[3:]

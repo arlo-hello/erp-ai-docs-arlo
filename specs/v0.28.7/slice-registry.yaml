@@ -10,10 +10,17 @@ domains:
   - PUR
   - PLAT
 id_pattern: '^ERP-SLICE-(PRODUCT|ORD|B2C|IMS|ASS|FIN|PUR|PLAT)-[0-9]{3,4}$'
-slices: []
+slices:
+  - slice_id: ERP-SLICE-ORD-002
+    title: 样机申请可自动建单推仓并形成异常闭环
+    domain: ORD
+    status: DEFINED
+    slice_kind: WRITE
+    blocked_by: []
+    contract: specs/v0.28.7/slices/ERP-SLICE-ORD-002/contract.md
 summary:
-  total_slices: 0
-  write: 0
+  total_slices: 1
+  write: 1
   read_only: 0
-  defined: 0
+  defined: 1
   candidate: 0
